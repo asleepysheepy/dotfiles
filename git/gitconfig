@@ -1,0 +1,11 @@
+[user]
+  name = Katie Macke
+  email = katie@sleepysheepy.net
+[core]
+  excludesfile = ~/projects/dotfiles/git/gitignore_global
+[alias]
+  ane = commit --no-edit --amend
+  ci = commit
+  co = checkout
+  fp = push --force-with-lease
+  st = status
