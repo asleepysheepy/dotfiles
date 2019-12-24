@@ -24,6 +24,7 @@ plugins=(
   osx
   pip
   pipenv
+  pyenv
   rbenv
   ripgrep
   ruby

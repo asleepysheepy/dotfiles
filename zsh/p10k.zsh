@@ -37,9 +37,10 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
       os_icon               # os identifier
-      rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
+      pyenv                   # python environment (https://github.com/pyenv/pyenv)
       nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
-      # context                 # user@hostname
+      rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
+      context               # user@hostname
       dir                     # current directory
       vcs                     # git status
       # prompt_char           # prompt symbol
@@ -56,7 +57,6 @@
       # direnv                  # direnv status (https://direnv.net/)
       # virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
       # anaconda                # conda environment (https://conda.io/)
-      # pyenv                   # python environment (https://github.com/pyenv/pyenv)
       # goenv                   # go environment (https://github.com/syndbg/goenv)
       # nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
       # nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
@@ -714,7 +714,7 @@
   typeset -g POWERLEVEL9K_RBENV_SOURCES=(shell local global)
   # If set to false, hide ruby version if it's the same as global:
   # $(rbenv version-name) == $(rbenv global).
-  typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
+  typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=false
   # Custom icon.
   # typeset -g POWERLEVEL9K_RBENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
