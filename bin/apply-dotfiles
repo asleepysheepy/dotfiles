@@ -14,3 +14,6 @@ ln -s $HOME/projects/dotfiles/nvim $HOME/.config/nvim
 
 rm $HOME/.irbrc
 ln -s $HOME/projects/dotfile/irbrc $HOME/.irbrc
+
+rm $HOME/.config/tmuxinator
+ln -s $HOME/projects/dotfiles/tmuxinator $HOME/.config/tmuxinator

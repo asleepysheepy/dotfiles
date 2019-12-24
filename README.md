@@ -3,6 +3,7 @@
 My configuration files for:
 * zsh
 * tmux
+* tmuxinator
 * neovim
 * git
 * iterm2
