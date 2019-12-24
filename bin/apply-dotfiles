@@ -1,0 +1,13 @@
+#!/bin/sh
+
+rm $HOME/.zshrc
+ln -s $HOME/projects/dotfiles/zsh/zshrc $HOME/.zshrc
+
+rm $HOME/.gitconfig
+ln -s $HOME/projects/dotfiles/git/gitconfig $HOME/.gitconfig
+
+rm $HOME/.tmux.conf
+ln -s $HOME/projects/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+
+rm $HOME/.config/nvim
+ln -s $HOME/projects/dotfiles/nvim $HOME/.config/nvim
