@@ -28,6 +28,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-scripts/argtextobj.vim'
   Plug 'w0rp/ale'
+
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 set dir=/tmp//
@@ -74,9 +77,6 @@ nmap <silent> <LocalLeader>nh :nohls<CR>
 nmap <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 nmap <silent> <LocalLeader>n<SPACE> :highlight clear ExtraWhitespace<CR>
 nmap <silent> <LocalLeader><SPACE> :highlight ExtraWhitespace ctermbg=red guibg=red<CR>
-nmap <silent> <LocalLeader>rb :wa <bar> :TestFile -strategy=neoterm<CR>
-nmap <silent> <LocalLeader>rf :wa <bar> :TestNearest -strategy=neoterm<CR>
-nmap <silent> <LocalLeader>rl :wa <bar> :TestLast -strategy=neoterm<CR>
 nmap <silent> <LocalLeader>tt :TagbarToggle<CR>
 nmap <silent> <LocalLeader>tf :TagbarOpen fj<CR>
 nmap <silent> <LocalLeader>tc :TagbarClose<CR>
@@ -235,3 +235,7 @@ function! ChooseRepo()
   return l:commitHash
 endfunction
 nmap <silent> <LocalLeader>o "zy<C-G> 0vt:"ay:Gbrowse <C-R>=ChooseRepo()<CR><CR>
+
+" Confirgure NERDtree
+let NERDTreeDirArrowExpandable = '▷'
+let NERDTreeDirArrowCollapsible = '▼'
