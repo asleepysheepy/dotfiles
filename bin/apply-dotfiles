@@ -8,7 +8,7 @@ ln -s $HOME/projects/dotfiles/zsh/zshrc $HOME/.zshrc
 rm $HOME/.gitconfig
 ln -s $HOME/projects/dotfiles/git/gitconfig $HOME/.gitconfig
 
-rm $HOME/.tmux.conf
+rm -rf $HOME/.tmux.conf
 ln -s $HOME/projects/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 rm $HOME/.config/nvim
@@ -17,5 +17,5 @@ ln -s $HOME/projects/dotfiles/nvim $HOME/.config/nvim
 rm $HOME/.irbrc
 ln -s $HOME/projects/dotfile/irbrc $HOME/.irbrc
 
-rm $HOME/.config/tmuxinator
+rm -rf $HOME/.config/tmuxinator
 ln -s $HOME/projects/dotfiles/tmuxinator $HOME/.config/tmuxinator
