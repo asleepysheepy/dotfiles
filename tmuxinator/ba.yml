@@ -12,14 +12,10 @@ windows:
     root: ~/projects/bots/ba/web
     panes:
       - vim
-  - editor-server:
-    root: ~/projects/bots/ba/server
-    panes:
-      - vim
   - server:
     panes:
       - docker-compose up
       - cd bot && sleep 15 && be rake
       - cd web && sleep 15 && yarn start
-      - cd server && sleep 15 && be rs
+      - cd web && sleep 15 && be rs
       - clear
