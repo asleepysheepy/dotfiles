@@ -1,5 +1,7 @@
 #!/bin/sh
 
+brew bundle
+
 rm $HOME/.zshrc
 ln -s $HOME/projects/dotfiles/zsh/zshrc $HOME/.zshrc
 
