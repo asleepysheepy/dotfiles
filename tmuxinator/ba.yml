@@ -5,17 +5,17 @@ startup_window: server
 
 windows:
   - editor-bot:
-    root: ~/projects/bots/ba/bot
-    panes:
-      - vim
+      root: ~/projects/bots/ba/bot
+      panes:
+        - vim
   - editor-web:
-    root: ~/projects/bots/ba/web
-    panes:
-      - vim
+      root: ~/projects/bots/ba/web
+      panes:
+        - vim
   - server:
-    panes:
-      - docker-compose up
-      - cd bot && sleep 15 && be rake
-      - cd web && sleep 15 && yarn start
-      - cd web && sleep 15 && be rs
-      - clear
+      panes:
+        - docker-compose up
+        - cd bot && sleep 15 && be rake
+        - cd web && sleep 15 && ./bin/webpack-dev-server
+        - cd web && sleep 15 && be rs
+        - clear
