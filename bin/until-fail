@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -z "${MAX}" ]; then
+    MAX=0
+fi
+
+count=0
+
+while $@; do
+   (( count++ ))
+
+   if [ $MAX == $count ]; then
+     break
+   fi
+
+  echo "###### [$count] ######"
+done
+
+echo "Successfully ran $count times"
