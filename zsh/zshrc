@@ -4,6 +4,7 @@ export ZSH_CUSTOM="$ZSH/custom"
 export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:$PATH"
 export EDITOR="nvim"
 export NVM_DIR="$HOME/.config/nvm"
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 HISTFILE="~/.cache/zsh_history"
 
@@ -27,7 +28,6 @@ plugins=(
   pyenv
   rbenv
   ripgrep
-  ruby
   safe-paste
   tmux
   tmuxinator
@@ -45,5 +45,7 @@ alias ll="ls -laG"
 alias vim="nvim"
 alias vi="nvim"
 alias mux="tmuxinator"
+alias rs="bundle exec rails server"
+alias rc="bundle exec rails console"
 
 
