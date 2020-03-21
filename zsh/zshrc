@@ -47,5 +47,7 @@ alias vi="nvim"
 alias mux="tmuxinator"
 alias rs="bundle exec rails server"
 alias rc="bundle exec rails console"
+alias devba="tmuxinator start ba"
+alias devss="tmuxinator start web"
 
 

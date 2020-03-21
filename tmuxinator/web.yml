@@ -1,0 +1,12 @@
+name: sleepysheepy.net
+root: ~/projects/websites/sleepysheepy.net
+
+startup_window: server
+
+windows:
+  - editor:
+      panes:
+        - vim
+  - server:
+      panes:
+        - yarn dev
