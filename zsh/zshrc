@@ -9,10 +9,10 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 HISTFILE="~/.cache/zsh_history"
 
 plugins=(
-  brew
   bundler
   colored-man-pages
   command-not-found
+  debian
   docker
   docker-compose
   dotenv
@@ -22,7 +22,6 @@ plugins=(
   npm
   npx
   nvm
-  osx
   pip
   pipenv
   pyenv
