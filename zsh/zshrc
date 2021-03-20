@@ -1,7 +1,7 @@
 export DOTFILES_DIR="$HOME/projects/dotfiles"
 export ZSH="/Users/katie/.config/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
-export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:/usr/local/opt/openjdk/bin:$PATH"
 export EDITOR="nvim"
 export NVM_DIR="$HOME/.config/nvm"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -20,7 +20,6 @@ plugins=(
   git
   heroku
   npm
-  npx
   nvm
   osx
   pip
@@ -29,6 +28,7 @@ plugins=(
   rbenv
   ripgrep
   safe-paste
+  terraform
   tmux
   tmuxinator
   transfer
@@ -51,5 +51,4 @@ alias rc="bundle exec rails console"
 alias rs="bundle exec rails server"
 alias vi="nvim"
 alias vim="nvim"
-
 

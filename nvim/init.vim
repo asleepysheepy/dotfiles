@@ -164,6 +164,7 @@ highlight link ALEWarningSign SignColumn
 
 " faster fzf fuzzy find respecting gitignore
 let $FZF_DEFAULT_COMMAND = '((git ls-tree -r --name-only HEAD; git ls-files -o --exclude-standard) || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
+let g:fzf_layout = { 'down': '40%' }
 
 " open splits to the right or below
 set splitbelow
@@ -177,7 +178,7 @@ let g:gitgutter_enabled = 1
 " Set colors
 colorscheme Dim
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+let g:airline_theme='light'
 
 hi MatchParen cterm=bold ctermbg=none ctermfg=14
 
