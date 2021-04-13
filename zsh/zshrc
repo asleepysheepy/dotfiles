@@ -40,8 +40,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 source $DOTFILES_DIR/zsh/p10k.zsh
 source $ZSH/oh-my-zsh.sh
 
-alias devba="tmuxinator start ba"
-alias devss="tmuxinator start web"
 alias flush-branches="git branch --merged master | grep -v 'master\|release' | xargs git branch -d && git remote prune origin"
 alias ll="ls -laG"
 alias mux="tmuxinator"
@@ -52,3 +50,4 @@ alias rs="bundle exec rails server"
 alias vi="nvim"
 alias vim="nvim"
 
+mc(){ mkdir "$1" && cd "$1" ; }
