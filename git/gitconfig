@@ -1,6 +1,6 @@
 [user]
   name = Katie Macke
-  email = katie@sleepysheepy.net
+  email = katie@sleepysheepy.dev
 [core]
   excludesfile = ~/projects/dotfiles/git/gitignore_global
 [alias]
@@ -8,4 +8,12 @@
   ci = commit
   co = checkout
   fp = push --force-with-lease
+  rc = rebase --continue
   st = status
+[credential]
+	helper = osxkeychain
+[init]
+	templatedir = /Users/katie/.git-templates
+	defaultBranch = main
+[pull]
+	rebase = false
