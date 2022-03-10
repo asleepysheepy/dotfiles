@@ -1,3 +1,5 @@
+typeset -U PATH
+
 export DOTFILES_DIR="$HOME/projects/dotfiles"
 export ZSH="/Users/katie/.config/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
@@ -5,6 +7,12 @@ export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:/usr/local/opt/openjdk/b
 export EDITOR="nvim"
 export NVM_DIR="$HOME/.config/nvm"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export NVM_DIR="$HOME/.nvm"
+    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 HISTFILE="~/.cache/zsh_history"
 
@@ -21,10 +29,9 @@ plugins=(
   heroku
   npm
   nvm
-  osx
+  macos
   pip
   pipenv
-  pyenv
   rbenv
   ripgrep
   safe-paste
@@ -40,14 +47,22 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 source $DOTFILES_DIR/zsh/p10k.zsh
 source $ZSH/oh-my-zsh.sh
 
-alias flush-branches="git branch --merged master | grep -v 'master\|release' | xargs git branch -d && git remote prune origin"
+alias flush-branches="git branch --merged main | grep -v 'main' | xargs git branch -d && git remote prune origin"
 alias ll="ls -laG"
 alias mux="tmuxinator"
 alias pu="nvim +PlugUpdate +qa"
 alias pull="git pull && flush-branches"
 alias rc="bundle exec rails console"
-alias rs="bundle exec rails server"
+alias rs="bundle exec rails server -b 0.0.0.0"
 alias vi="nvim"
 alias vim="nvim"
+alias ws="python3 -m http.server"
+alias docker-purge="docker system prune -fa --volumes"
+
+alias python="python3"
+
+alias olivia="ssh olivia.sleepysheepy.dev"
+
+eval "$(rbenv init -)"
 
 mc(){ mkdir "$1" && cd "$1" ; }
