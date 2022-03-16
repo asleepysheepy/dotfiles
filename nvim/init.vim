@@ -69,7 +69,7 @@ call plug#end()
 " +-------------+
 " Set color
 set termguicolors
-colorscheme kt
+colorscheme kt_dark
 
 " Use the system clipboard
 set clipboard=unnamed

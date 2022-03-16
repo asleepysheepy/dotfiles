@@ -5,7 +5,7 @@ if version > 580
   endif
 endif
 
-let g:colors_name = 'kt'
+let g:colors_name = 'kt_dark'
 set background=dark
 
 let g:terminal_color_0 = '#1c2525'
