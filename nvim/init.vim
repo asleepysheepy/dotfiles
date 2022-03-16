@@ -121,11 +121,8 @@ autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
 
-" Setup an undodir to use with undofile
-if !isdirectory("~/.config/nvim/undo-dir")
-    call mkdir("~/.config/nvim/undo-dir", "", 0700)
-endif
-set undofile undodir=~/.config/nvim/undo-dir
+" Enable the use of an undofile
+set undofile
 
 " +---------------------+
 " |   Useful keybinds   |
