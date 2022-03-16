@@ -45,7 +45,8 @@ hi LineNr       guifg=#212b2b guibg=NONE
 hi ColorColumn    guifg=NONE    guibg=#000000 gui=NONE
 hi Error          guifg=#c8dde2 guibg=#c8233b
 hi MatchParen     guifg=#0b1010 guibg=#2d8da1
-hi NonText        guifg=#487a84               gui=NONE
+hi NonText        guifg=#2d3939               gui=NONE
+hi Whitespace     guifg=#2d3939               gui=NONE
 hi SpecialKey     guifg=#bdd6db guibg=#59c0e3 gui=NONE
 
 hi Pmenu      guifg=#bdd6db guibg=#0b1010 gui=NONE
