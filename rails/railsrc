@@ -1,0 +1,5 @@
+--database=postgresql
+--skip-test
+--skip-system-test
+--skip-action-mailbox
+--skip-action-text

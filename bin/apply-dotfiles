@@ -24,3 +24,7 @@ ln -s $HOME/projects/dotfile/irbrc $HOME/.irbrc
 
 rm -rf $HOME/.config/tmuxinator
 ln -s $HOME/projects/dotfiles/tmuxinator $HOME/.config/tmuxinator
+
+rm -rf $HOME/.config/rails
+ln -s $HOME/projects/dotfiles/rails $HOME/.config/rails
+
