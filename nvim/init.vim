@@ -69,7 +69,7 @@ call plug#end()
 " +-------------+
 " Set color
 set termguicolors
-colorscheme kt_light
+colorscheme kt_dark
 
 " Use the system clipboard
 set clipboard=unnamed
@@ -144,6 +144,9 @@ nmap <silent> <LocalLeader>ec :tabnew ~/.config/nvim/init.vim<CR>
 nmap <silent> <LocalLeader>gb :Git blame<CR>
 " Copy file name
 nmap <silent> <LocalLeader>fn :let @*=expand("%")<CR>
+
+" Switch back to the previous file
+nmap <silent> <LocalLeader><LocalLeader> <C-^>
 
 " +---------------+
 " |      ALE      |
