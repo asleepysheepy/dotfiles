@@ -1,11 +1,13 @@
 typeset -U PATH
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export CONFIG_DIR=$XDG_CONFIG_HOME
 export DOTFILES_DIR="$HOME/projects/dotfiles"
-export ZSH="/Users/katie/.config/oh-my-zsh"
+export ZSH="$CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:/usr/local/opt/openjdk/bin:$PATH"
 export EDITOR="nvim"
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="$CONFIG_DIR/nvm"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -66,3 +68,4 @@ alias olivia="ssh olivia.sleepysheepy.dev"
 eval "$(rbenv init -)"
 
 mc(){ mkdir "$1" && cd "$1" ; }
+
