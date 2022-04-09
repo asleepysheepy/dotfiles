@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  read -p "Please specify a wrapper version: " VERSION
+else
+  VERSION=$1
+fi
+
+# Create a subdirectory for this version and move into it
+mkdir -p "wrapper-$VERSION" && cd "wrapper-$VERSION"
+
+# Determine maven path and retrieve archive checksums
+MAVEN_PATH="https://services.gradle.org/distributions/gradle-$VERSION"
+DIST_CHECKSUM=$(head --lines=1 <(curl --silent --location "${MAVEN_PATH}-all.zip.sha256"))
+WRAPPER_CHECKSUM=$(head --lines=1 <(curl --silent --location "${MAVEN_PATH}-wrapper.jar.sha256"))
+
+# Gradle 7+ requires a settings file stub pre-initialization
+>settings.gradle
+
+# Create properties file with default environment configuration
+echo "org.gradle.jvmargs = -Xmx4G -Dfile.encoding=UTF-8" > gradle.properties
+echo "org.gradle.logging.level = info" >> gradle.properties
+echo "org.gradle.parallel = true" >> gradle.properties
+
+# Execute the wrapper command to initialize the environment
+gradle wrapper\
+ --gradle-version "$VERSION"\
+ --distribution-type all\
+ --gradle-distribution-sha256-sum "$DIST_CHECKSUM"
+
+# Remove the settings file stub post-initialization
+rm settings.gradle
+
+# Ensure the wrapper subdirectory exists
+mkdir -p gradle/wrapper
+
+# Verify the wrapper checksum
+# This will fail for 3.3 through 4.0, due to the implementation of the wrapper
+echo "$WRAPPER_CHECKSUM gradle/wrapper/gradle-wrapper.jar" | sha256sum --check
+
+# Make gradlew script executable
+chmod +x ./gradlew
+
+# Setup completed, wait for input
+read -s -n 1 -p "Press any key to exit"
