@@ -37,9 +37,6 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
       os_icon               # os identifier
-      pyenv                   # python environment (https://github.com/pyenv/pyenv)
-      nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
-      rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
       context               # user@hostname
       dir                     # current directory
       vcs                     # git status
