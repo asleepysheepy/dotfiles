@@ -56,6 +56,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 source $DOTFILES_DIR/zsh/p10k.zsh
 source $ZSH/oh-my-zsh.sh
 
+source $XDG_CONFIG_HOME/broot/launcher/bash/br
+
 alias flush-branches="git branch --merged main | grep -v 'main' | xargs git branch -d && git remote prune origin"
 alias ll="lsd -la"
 alias mux="tmuxinator"
