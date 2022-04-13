@@ -1,22 +1,34 @@
 typeset -U PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export CONFIG_DIR=$XDG_CONFIG_HOME
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 export DOTFILES_DIR="$HOME/projects/dotfiles"
-export ZSH="$CONFIG_DIR/oh-my-zsh"
+
+export ZDOTDIR="$XDG_CACHE_HOME/zsh"
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump-${HOST/.*/}-${ZSH_VERSION}"
+export HISTFILE="$XDG_CACHE_HOME/zsh/zsh_history"
+export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
+
 export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:/usr/local/opt/openjdk/bin:$PATH"
+
 export EDITOR="nvim"
-export NVM_DIR="$CONFIG_DIR/nvm"
+
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
+
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-export NVM_DIR="$HOME/.nvm"
-    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
-    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-HISTFILE="~/.cache/zsh_history"
+eval "$(rbenv init -)"
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
 plugins=(
   brew
@@ -25,21 +37,16 @@ plugins=(
   command-not-found
   docker
   docker-compose
-  dotenv
   gem
   git
   heroku
   npm
   nvm
   macos
-  pip
-  pipenv
   rbenv
   ripgrep
   safe-paste
   terraform
-  tmux
-  tmuxinator
   transfer
   yarn
 )
@@ -50,7 +57,7 @@ source $DOTFILES_DIR/zsh/p10k.zsh
 source $ZSH/oh-my-zsh.sh
 
 alias flush-branches="git branch --merged main | grep -v 'main' | xargs git branch -d && git remote prune origin"
-alias ll="ls -laG"
+alias ll="lsd -la"
 alias mux="tmuxinator"
 alias pu="nvim +PlugUpdate +qa"
 alias pull="git pull && flush-branches"
@@ -64,8 +71,6 @@ alias docker-purge="docker system prune -fa --volumes"
 alias python="python3"
 
 alias olivia="ssh olivia.sleepysheepy.dev"
-
-eval "$(rbenv init -)"
 
 mc(){ mkdir "$1" && cd "$1" ; }
 

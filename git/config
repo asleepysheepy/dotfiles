@@ -11,9 +11,8 @@
   rc = rebase --continue
   st = status
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [init]
-	templatedir = /Users/katie/.git-templates
-	defaultBranch = main
+  defaultBranch = main
 [pull]
-	rebase = false
+  rebase = false

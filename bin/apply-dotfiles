@@ -4,23 +4,31 @@
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-
 brew bundle
 
 rm $HOME/.zshrc
 ln -s $HOME/projects/dotfiles/zsh/zshrc $HOME/.zshrc
 
-rm $HOME/.gitconfig
-ln -s $HOME/projects/dotfiles/git/gitconfig $HOME/.gitconfig
+mkdir $HOME/.cache/ruby
+mkdir $HOME/.cache/less
+mkdir $HOME/.cache/zsh
+mkdir $HOME/.cache/pnpm
+mkdir $HOME/.cache/bundle
 
-rm -rf $HOME/.tmux.conf
-ln -s $HOME/projects/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+mkdir $HOME/.local/state
+mkdir $HOME/.local/state/pnpm
 
-rm $HOME/.config/nvim
+rm $HOME/.config/git
+ln -s $HOME/projects/dotfiles/git $HOME/.config/git
+
+rm -rf $HOME/.config/tmux
+ln -s $HOME/projects/dotfiles/tmux $HOME/.config/tmux
+
+rm -rf $HOME/.config/nvim
 ln -s $HOME/projects/dotfiles/nvim $HOME/.config/nvim
 
-rm $HOME/.irbrc
-ln -s $HOME/projects/dotfile/irbrc $HOME/.irbrc
+rm -rf $HOME/.config/ruby
+ln -s $HOME/projects/dotfiles/ruby $HOME/.config/ruby
 
 rm -rf $HOME/.config/tmuxinator
 ln -s $HOME/projects/dotfiles/tmuxinator $HOME/.config/tmuxinator
