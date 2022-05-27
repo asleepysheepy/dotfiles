@@ -6,7 +6,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export DOTFILES_DIR="$HOME/projects/dotfiles"
 
-export ZDOTDIR="$XDG_CACHE_HOME/zsh"
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump-${HOST/.*/}-${ZSH_VERSION}"
 export HISTFILE="$XDG_CACHE_HOME/zsh/zsh_history"
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
