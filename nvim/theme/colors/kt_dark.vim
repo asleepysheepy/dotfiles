@@ -1,156 +1,197 @@
 if version > 580
   hi clear
-  if exists('syntax_on')
+  if exists("syntax_on")
     syntax reset
   endif
 endif
 
-let g:colors_name = 'kt_dark'
+let g:colors_name = "kt_dark"
 set background=dark
 
-let g:terminal_color_0 = '#1c2525'
-let g:terminal_color_1 = '#c8233b'
-let g:terminal_color_2 = '#6ee062'
-let g:terminal_color_3 = '#ffffff'
-let g:terminal_color_4 = '#359db0'
-let g:terminal_color_5 = '#c575ff'
-let g:terminal_color_6 = '#68cbe8'
-let g:terminal_color_7 = '#d6e5e9'
-let g:terminal_color_8 = '#3a4949'
-let g:terminal_color_9 = '#ed3855'
-let g:terminal_color_10 = '#8fe087'
-let g:terminal_color_11 = '#ffffff'
-let g:terminal_color_12 = '#71c9db'
-let g:terminal_color_13 = '#b1b0fc'
-let g:terminal_color_14 = '#bce6f4'
-let g:terminal_color_15 = '#f2f6f7'
+let g:terminal_color_0 = "#1c2525"
+let g:terminal_color_1 = "#c8233b"
+let g:terminal_color_2 = "#6ee062"
+let g:terminal_color_3 = "#ffffff"
+let g:terminal_color_4 = "#359db0"
+let g:terminal_color_5 = "#c575ff"
+let g:terminal_color_6 = "#68cbe8"
+let g:terminal_color_7 = "#d6e5e9"
+let g:terminal_color_8 = "#3a4949"
+let g:terminal_color_9 = "#ed3855"
+let g:terminal_color_10 = "#8fe087"
+let g:terminal_color_11 = "#ffffff"
+let g:terminal_color_12 = "#71c9db"
+let g:terminal_color_13 = "#b1b0fc"
+let g:terminal_color_14 = "#bce6f4"
+let g:terminal_color_15 = "#f2f6f7"
+
+let s:colour_01 = "#0b1010"
+let s:colour_02 = "#121717"
+let s:colour_03 = "#1c2525"
+let s:colour_04 = "#212b2b"
+let s:colour_05 = "#2d3939"
+let s:colour_06 = "#f2f6f7"
+let s:colour_07 = "#d6e5e9"
+let s:colour_08 = "#bdd6db"
+let s:colour_09 = "#c8dde2"
+let s:colour_10 = "#7799a1"
+let s:colour_11 = "#537178"
+let s:colour_12 = "#3a4949"
+let s:colour_13 = "#b1e2f2"
+let s:colour_14 = "#68cbe8"
+let s:colour_15 = "#59c0e3"
+let s:colour_16 = "#359db0"
+let s:colour_17 = "#2d8da1"
+let s:colour_18 = "#c8233b"
+let s:colour_19 = "#f7b83d"
+let s:colour_20 = "#6ee062"
+let s:colour_21 = "#b1b0fc"
+
+function! s:hi(group, guifg, guibg, attr, guisp)
+  let cmd = ""
+  if a:guifg != ""
+    let cmd = cmd . " guifg=" . a:guifg
+  endif
+  if a:guibg != ""
+    let cmd = cmd . " guibg=" . a:guibg
+  endif
+  if a:attr != ""
+    let cmd = cmd . " gui=" . a:attr
+  endif
+  if a:guisp != ""
+    let cmd = cmd . " guisp=" . a:guisp
+  endif
+  if cmd != ""
+    exec "hi " . a:group . cmd
+  endif
+endfunction
 
 "+---------------+
 "+ UI Components +
 "+---------------+
-hi Bold      gui=bold
-hi Italic    gui=italic
-hi Underline gui=underline
-hi Undercurl gui=undercurl
+call s:hi("Bold",      "", "", "bold",       "")
+call s:hi("Italic",    "", "", "italic",     "")
+call s:hi("Underline", "", "",  "underline", "")
+call s:hi("Undercurl", "", "",  "undercurl", "")
 
 "+--- Editor ---+
-hi Normal guifg=#c8dde2 guibg=#0b1010
+call s:hi("Normal", s:colour_09, s:colour_01, "", "")
 
-hi Cursor       guifg=#0b1010 guibg=#c8dde2
-hi CursorLine   guifg=NONE    guibg=#121717
-hi CursorColumn guifg=NONE    guibg=#121717
-hi CursorLineNr guifg=#4e6464 guibg=NONE
-hi LineNr       guifg=#212b2b guibg=NONE
+call s:hi("Cursor",       s:colour_01, s:colour_09, "", "")
+call s:hi("CursorLine",   "NONE",     s:colour_02, "", "")
+call s:hi("CursorColumn", "NONE",     s:colour_02, "", "")
+call s:hi("CursorLineNr", s:colour_11, "NONE",     "", "")
+call s:hi("LineNr",       s:colour_04, "NONE",     "", "")
 
-hi ColorColumn    guifg=NONE    guibg=#000000 gui=NONE
-hi Error          guifg=#c8dde2 guibg=#c8233b
-hi MatchParen     guifg=#0b1010 guibg=#2d8da1
-hi NonText        guifg=#2d3939               gui=NONE
-hi Whitespace     guifg=#2d3939               gui=NONE
-hi SpecialKey     guifg=#bdd6db guibg=#59c0e3 gui=NONE
+call s:hi("ColorColumn", "NONE",     s:colour_03, "NONE", "")
+call s:hi("Error",       s:colour_09, s:colour_18, "",     "")
+call s:hi("MatchParen",  s:colour_01, s:colour_17, "",     "")
+call s:hi("NonText",     s:colour_05, "NONE",     "",     "")
+call s:hi("Whitespace",  s:colour_05, "NONE",     "",     "")
+call s:hi("SpecialKey",  s:colour_08, s:colour_15, "NONE", "")
 
-hi Pmenu      guifg=#bdd6db guibg=#0b1010 gui=NONE
-hi PmenuSbar  guifg=#bdd6db guibg=#0b1010
-hi PmenuSel   guifg=NONE    guibg=#59c0e3 gui=NONE
-hi PmenuThumb guifg=NONE    guibg=#59c0e3
+call s:hi("Pmenu",      s:colour_08, s:colour_01, "NONE", "")
+call s:hi("PmenuSbar",  s:colour_08, s:colour_01, "",     "")
+call s:hi("PmenuSel",   "NONE",     s:colour_15, "NONE", "")
+call s:hi("PmenuThumb", "NONE",     s:colour_15, "",     "")
 
-hi SpellBad   guifg=#c8233b guibg=bg gui=undercurl guisp=#c8233b
-hi SpellCap   guifg=#f7b83d guibg=bg gui=undercurl guisp=#f7b83d
-hi SpellLocal guifg=#2d8da1 guibg=bg gui=undercurl guisp=#2d8da1
-hi SpellRare  guifg=#bbe555 guibg=bg gui=undercurl guisp=#bbe555
+call s:hi("SpellBad",   s:colour_18, "bg", "undercurl", s:colour_18)
+call s:hi("SpellCap",   s:colour_19, "bg", "undercurl", s:colour_19)
+call s:hi("SpellLocal", s:colour_17, "bg", "undercurl", s:colour_17)
+call s:hi("SpellRare",  s:colour_20, "bg", "undercurl", s:colour_20)
 
-hi Visual    guifg=#ffffff guibg=#359db0 gui=NONE
-hi VisualNOS guifg=#ffffff guibg=#359db0 gui=NONE
+call s:hi("Visual",    s:colour_06, s:colour_16, "NONE", "")
+call s:hi("VisualNOS", s:colour_06, s:colour_16, "NONE", "")
 
 "+- Neovim Support -+
-hi healthError   guifg=#c8233b guibg=NONE
-hi healthSuccess guifg=#bbe555 guibg=NONE
-hi healthWarning guifg=#f7b83d guibg=NONE
-hi TermCursorNC                guibg=bg
+call s:hi("healthError",   s:colour_18, "NONE", "", "")
+call s:hi("healthSuccess", s:colour_20, "NONE", "", "")
+call s:hi("healthWarning", s:colour_19, "NONE", "", "")
+call s:hi("TermCursorNC",  "",         "bg",   "", "")
 
 "+- Neovim Diagnostics API -+
-hi DiagnosticWarn  guifg=#f7b83d
-hi DiagnosticError guifg=#c8233b
-hi DiagnosticInfo  guifg=#59c0e3
-hi DiagnosticHint  guifg=#b1b0fc
-hi DiagnosticUnderlineWarn  guifg=#f7b83d gui=undercurl
-hi DiagnosticUnderlineError guifg=#c8233b gui=undercurl
-hi DiagnosticUnderlineInfo  guifg=#59c0e3  gui=undercurl
-hi DiagnosticUnderlineHint  guifg=#b1b0fc gui=undercurl
+call s:hi("DiagnosticWarn",  s:colour_19, "", "", "")
+call s:hi("DiagnosticError", s:colour_18, "", "", "")
+call s:hi("DiagnosticInfo",  s:colour_15, "", "", "")
+call s:hi("DiagnosticHint",  s:colour_21, "", "", "")
+call s:hi("DiagnosticUnderlineWarn",  s:colour_19, "", "undercurl", "")
+call s:hi("DiagnosticUnderlineError", s:colour_18, "", "undercurl", "")
+call s:hi("DiagnosticUnderlineInfo",  s:colour_15, "", "undercurl", "")
+call s:hi("DiagnosticUnderlineHint",  s:colour_21, "", "undercurl", "")
 
 "+- Neovim DocumentHighlight -+
-hi LspReferenceText  guibg=#2d3939
-hi LspReferenceRead  guibg=#2d3939
-hi LspReferenceWrite guibg=#2d3939
+call s:hi("LspReferenceText",  "", s:colour_05, "", "")
+call s:hi("LspReferenceRead",  "", s:colour_05, "", "")
+call s:hi("LspReferenceWrite", "", s:colour_05, "", "")
 
 "+- Neovim LspSignatureHelp -+
-hi LspSignatureActiveParameter guifg=#68cbe8 gui=underline
+call s:hi("LspSignatureActiveParameter", s:colour_14, "", "underline", "")
 
 "+--- Gutter ---+
-hi Folded     guifg=#adccd2 guibg=#000000 gui=bold
-hi FoldColumn guifg=#212b2b guibg=NONE
-hi SignColumn guifg=#212b2b guibg=NONE
+call s:hi("Folded",     s:colour_09, s:colour_03, "bold", "")
+call s:hi("FoldColumn", s:colour_04, "NONE",     "",     "")
+call s:hi("SignColumn", s:colour_04, "NONE",     "",     "")
 
 "+--- Navigation ---+
-hi Directory guifg=#68cbe8
+call s:hi("Directory", s:colour_14, "", "", "")
 
 "+--- Prompt/Status ---+
-hi EndOfBuffer      guifg=#487a84
+call s:hi("EndOfBuffer", s:colour_09, "", "", "")
 
-hi ErrorMsg         guifg=#ffffff guibg=#c8233b
-hi WarningMsg       guifg=#0b1010 guibg=#f7b83d
+call s:hi("ErrorMsg",   s:colour_06, s:colour_18, "", "")
+call s:hi("WarningMsg", s:colour_01, s:colour_19, "", "")
 
-hi ModeMsg          guifg=#f2f6f7
-hi MoreMsg          guifg=#2d8da1
-hi Question         guifg=#f2f6f7
+call s:hi("ModeMsg",  s:colour_06, "", "", "")
+call s:hi("MoreMsg",  s:colour_17, "", "", "")
+call s:hi("Question", s:colour_06, "", "", "")
 
-hi StatusLine       guifg=#bdd6db guibg=#121717 gui=bold
-hi StatusLineNC     guifg=#bdd6db guibg=#121717 gui=NONE
-hi StatusLineTerm   guifg=#bdd6db guibg=#121717 gui=bold
-hi StatusLineTermNC guifg=#bdd6db guibg=#121717 gui=NONE
+call s:hi("StatusLine",       s:colour_08, s:colour_02, "bold", "")
+call s:hi("StatusLineNC",     s:colour_08, s:colour_02, "NONE", "")
+call s:hi("StatusLineTerm",   s:colour_08, s:colour_02, "bold", "")
+call s:hi("StatusLineTermNC", s:colour_08, s:colour_02, "NONE", "")
 
-hi WildMenu         guifg=#2d8da1 guibg=#121717
+call s:hi("WildMenu",         s:colour_17, s:colour_02, "",     "")
 
 "+--- Search ---+
-hi IncSearch guifg=#3a4949 guibg=#d6e5e9
-hi Search    guifg=#d6e5e9 guibg=#3a4949 gui=underline
+call s:hi("IncSearch", s:colour_12, s:colour_07, "",          "")
+call s:hi("Search",    s:colour_07, s:colour_12, "underline", "")
 
 "+--- Tabs ---+
-hi TabLine     guifg=#b1e2f2 guibg=#1c2525 gui=NONE
-hi TabLineFill guifg=#b1e2f2 guibg=#1c2525 gui=NONE
-hi TabLineSel  guifg=#d6e5e9 guibg=#3a4949 gui=NONE
+call s:hi("TabLine",     s:colour_13, s:colour_03, "NONE", "")
+call s:hi("TabLineFill", s:colour_13, s:colour_03, "NONE", "")
+call s:hi("TabLineSel",  s:colour_17, s:colour_01, "NONE", "")
 
 "+--- Window ---+
-hi Title          guifg=#59c0e3 guibg=NONE gui=bold
-hi VertSplit      guifg=#359db0 guibg=#0b1010 gui=NONE
+call s:hi("Title",     s:colour_15, "NONE",      "bold", "")
+call s:hi("VertSplit", s:colour_16, s:colour_01,  "NONE", "")
 
 "+----------------------+
 "+ Language Base Groups +
 "+----------------------+
-hi Boolean        guifg=#d6e5e9 guibg=NONE gui=NONE
-hi Character      guifg=#d6e5e9 guibg=NONE gui=NONE
-hi Comment        guifg=#537178 guibg=NONE gui=italic
-hi Conceal                      guibg=NONE
-hi Conditional    guifg=#b1e2f2 guibg=NONE gui=NONE
-hi Constant       guifg=#b1b0fc guibg=NONE gui=NONE
-hi Decorator      guifg=#2d8da1
-hi Define         guifg=#59c0e3 guibg=NONE gui=NONE
-hi Delimiter      guifg=NONE
-hi Float          guifg=#b1e2f2 guibg=NONE gui=NONE
-hi Function       guifg=#59c0e3 guibg=NONE gui=NONE
-hi Identifier     guifg=#bdd6db guibg=NONE gui=NONE
-hi Keyword        guifg=#59c0e3 guibg=NONE gui=NONE
-hi Label          guifg=#d6e5e9 guibg=NONE gui=NONE
-hi Number         guifg=#b1e2f2 guibg=NONE gui=NONE
-hi Operator       guifg=#bdd6db guibg=NONE gui=NONE
-hi PreProc        guifg=#7799a1 guibg=NONE gui=NONE
-hi Special        guifg=#bdd6db guibg=NONE gui=NONE
-hi Statement      guifg=#b1e2f2 guibg=NONE gui=NONE
-hi StorageClass   guifg=#2d8da1 guibg=NONE gui=NONE
-hi String         guifg=#6ee062 guibg=NONE gui=NONE
-hi Tag            guifg=#59c0e3 guibg=NONE gui=NONE
-hi Todo           guifg=#7799a1 guibg=NONE gui=inverse,bold
-hi Type           guifg=NONE    guibg=NONE gui=NONE
+call s:hi("Boolean",        s:colour_07, "NONE", "NONE",         "")
+call s:hi("Character",      s:colour_07, "NONE", "NONE",         "")
+call s:hi("Comment",        s:colour_11, "NONE", "italic",       "")
+call s:hi("Conceal",        "",         "NONE", "",             "")
+call s:hi("Conditional",    s:colour_13, "NONE", "NONE",         "")
+call s:hi("Constant",       s:colour_21, "NONE", "NONE",         "")
+call s:hi("Decorator",      s:colour_17, "",     "",             "")
+call s:hi("Define",         s:colour_15, "NONE", "NONE",         "")
+call s:hi("Delimiter",      "NONE",     "",     "",             "")
+call s:hi("Float",          s:colour_13, "NONE", "NONE",         "")
+call s:hi("Function",       s:colour_15, "NONE", "NONE",         "")
+call s:hi("Identifier",     s:colour_08, "NONE", "NONE",         "")
+call s:hi("Keyword",        s:colour_15, "NONE", "NONE",         "")
+call s:hi("Label",          s:colour_07, "NONE", "NONE",         "")
+call s:hi("Number",         s:colour_13, "NONE", "NONE",         "")
+call s:hi("Operator",       s:colour_08, "NONE", "NONE",         "")
+call s:hi("PreProc",        s:colour_10, "NONE", "NONE",         "")
+call s:hi("Special",        s:colour_08, "NONE", "NONE",         "")
+call s:hi("Statement",      s:colour_13, "NONE", "NONE",         "")
+call s:hi("StorageClass",   s:colour_17, "NONE", "NONE",         "")
+call s:hi("String",         s:colour_20, "NONE", "NONE",         "")
+call s:hi("Tag",            s:colour_15, "NONE", "NONE",         "")
+call s:hi("Todo",           s:colour_10, "NONE", "inverse,bold", "")
+call s:hi("Type",           "NONE",     "NONE", "NONE",         "")
 
 hi! link Annotation Decorator
 hi! link Macro Define
@@ -161,10 +202,10 @@ hi! link Variable Identifier
 "+-----------+
 "+ Languages +
 "+-----------+
-hi cssAttributeSelector guifg=#359db0
-hi cssDefinition        guifg=#359db0 gui=NONE
-hi cssIdentifier        guifg=#359db0 gui=underline
-hi cssStringQ           guifg=#359db0
+call s:hi("cssAttributeSelector", s:colour_16, "", "",          "")
+call s:hi("cssDefinition",        s:colour_16, "", "NONE",      "")
+call s:hi("cssIdentifier",        s:colour_16, "", "underline", "")
+call s:hi("cssStringQ",           s:colour_16, "", "",          "")
 hi! link cssAttr Keyword
 hi! link cssBraces Delimiter
 hi! link cssClassName cssDefinition
@@ -174,21 +215,21 @@ hi! link cssPseudoClass cssDefinition
 hi! link cssPseudoClassId cssPseudoClass
 hi! link cssVendor Keyword
 
-hi DiffAdd    guifg=#2d3939 guibg=#6ee062 gui=bold
-hi DiffChange guifg=#2d3939 guibg=#f7b83d gui=NONE
-hi DiffDelete guifg=#2d3939 guibg=#c8233b gui=NONE
-hi DiffText   guifg=#2d3939 guibg=#f7b83d gui=bold
+call s:hi("DiffAdd",    s:colour_05, s:colour_20, "bold", "")
+call s:hi("DiffChange", s:colour_05, s:colour_19, "NONE", "")
+call s:hi("DiffDelete", s:colour_05, s:colour_18, "NONE", "")
+call s:hi("DiffText",   s:colour_05, s:colour_19, "bold", "")
 hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
-hi gitconfigVariable guifg=#b1b0fc
+call s:hi("gitconfigVariable", s:colour_21, "", "", "")
 
-hi goBuiltins guifg=#59c0e3
+call s:hi("goBuiltins", s:colour_15, "", "", "")
 hi! link goConstants Keyword
 
-hi htmlArg  guifg=#b1b0fc
-hi htmlLink guifg=#b1e2f2
+call s:hi("htmlArg",  s:colour_21, "", "", "")
+call s:hi("htmlLink", s:colour_13, "", "", "")
 hi! link htmlBold Bold
 hi! link htmlEndTag htmlTag
 hi! link htmlItalic Italic
@@ -209,9 +250,9 @@ hi! link javaScriptBraces Delimiter
 hi! link javaScriptIdentifier Identifier
 hi! link javaScriptNumber Number
 
-hi jsonKeyword guifg=#59c0e3
+hi jsonKeyword guifg=s:colour_15
 
-hi lessClass guifg=#359db0 gui=NONE
+hi lessClass guifg=s:colour_16 gui=NONE
 hi! link lessAmpersand Keyword
 hi! link lessCssAttribute Delimiter
 hi! link lessFunction Function
@@ -225,12 +266,12 @@ hi! link lispFunc Function
 
 hi! link luaFunc Function
 
-hi markdownBlockquote    guifg=#59c0e3
-hi markdownCode          guifg=#f2f6f7
-hi markdownCodeDelimiter guifg=#f2f6f7
-hi markdownH1            guifg=#ffffff gui=bold
-hi markdownLinkText      guifg=#b1e2f2
-hi markdownUrl           guifg=#b1e2f2 gui=underline
+call s:hi("markdownBlockquote",    s:colour_15, "", "",          "")
+call s:hi("markdownCode",          s:colour_06, "", "",          "")
+call s:hi("markdownCodeDelimiter", s:colour_06, "", "",          "")
+call s:hi("markdownH1",            s:colour_06, "", "bold",      "")
+call s:hi("markdownLinkText",      s:colour_13, "", "",          "")
+call s:hi("markdownUrl",           s:colour_13, "", "underline", "")
 hi! link markdownBold Bold
 hi! link markdownBoldDelimiter Keyword
 hi! link markdownFootnoteDefinition markdownFootnote
@@ -248,19 +289,19 @@ hi! link markdownListMarker Keyword
 hi! link markdownRule Keyword
 hi! link markdownHeadingDelimiter Keyword
 
-hi phpClasses guifg=#b1b0fc
-hi phpDocTags guifg=#59c0e3
+call s:hi("phpClasses", s:colour_21, "", "", "")
+call s:hi("phpDocTags", s:colour_15, "", "", "")
 hi! link phpDocCustomTags phpDocTags
 hi! link phpMemberSelector Keyword
 
-hi podCmdText      guifg=#59c0e3
-hi podVerbatimLine guifg=#59c0e3
+call s:hi("podCmdText",      s:colour_15, "", "", "")
+call s:hi("podVerbatimLine", s:colour_15, "", "", "")
 hi! link podFormat Keyword
 
 hi! link pythonBuiltin Type
 hi! link pythonEscape SpecialChar
 
-hi rubySymbol guifg=#68cbe8 gui=bold
+call s:hi("rubySymbol", s:colour_14, "", "bold", "")
 hi! link rubyAttribute Identifier
 hi! link rubyBlockParameterList Operator
 hi! link rubyConstant Constant
@@ -270,20 +311,20 @@ hi! link rubyLocalVariableOrMethod Function
 hi! link rubyPseudoVariable Keyword
 hi! link rubyRegexp SpecialChar
 
-hi rustAttribute guifg=#2d8da1
-hi rustEnum      guifg=#59c0e3 gui=bold
-hi rustMacro     guifg=#b1b0fc gui=bold
-hi rustModPath   guifg=#59c0e3
-hi rustPanic     guifg=#b1e2f2 gui=bold
-hi rustTrait     guifg=#59c0e3 gui=italic
+call s:hi("rustAttribute", s:colour_17, "", "",       "")
+call s:hi("rustEnum",      s:colour_15, "", "bold",   "")
+call s:hi("rustMacro",     s:colour_21, "", "bold",   "")
+call s:hi("rustModPath",   s:colour_15, "", "",       "")
+call s:hi("rustPanic",     s:colour_13, "", "bold",   "")
+call s:hi("rustTrait",     s:colour_15, "", "italic", "")
 hi! link rustCommentLineDoc Comment
 hi! link rustDerive rustAttribute
 hi! link rustEnumVariant rustEnum
 hi! link rustEscape SpecialChar
 hi! link rustQuestionMark Keyword
 
-hi sassClass guifg=#359db0 gui=NONE
-hi sassId    guifg=#359db0 gui=underline
+call s:hi("sassClass", s:colour_16, "", "NONE",      "")
+call s:hi("sassId",    s:colour_16, "", "underline", "")
 hi! link sassAmpersand Keyword
 hi! link sassClassChar Delimiter
 hi! link sassControl Keyword
@@ -306,16 +347,16 @@ hi! link shDerefVar Identifier
 hi! link sqlKeyword Keyword
 hi! link sqlSpecial Keyword
 
-hi vimAugroup  guifg=#359db0
-hi vimMapRhs   guifg=#59c0e3
-hi vimNotation guifg=#b1b0fc
+call s:hi("vimAugroup",  s:colour_16, "", "", "")
+call s:hi("vimMapRhs",   s:colour_15, "", "", "")
+call s:hi("vimNotation", s:colour_21, "", "", "")
 hi! link vimFunc Function
 hi! link vimFunction Function
 hi! link vimUserFunc Function
 
-hi xmlAttrib     guifg=#b1b0fc
-hi xmlCdataStart guifg=#537178 gui=bold
-hi xmlNamespace  guifg=#59c0e3
+call s:hi("xmlAttrib",     s:colour_21, "", "",     "")
+call s:hi("xmlCdataStart", s:colour_11, "", "bold", "")
+call s:hi("xmlNamespace",  s:colour_15, "", "",     "")
 hi! link xmlAttribPunct Delimiter
 hi! link xmlCdata Comment
 hi! link xmlCdataCdata xmlCdataStart
@@ -324,7 +365,7 @@ hi! link xmlEndTag xmlTagName
 hi! link xmlProcessingDelim Keyword
 hi! link xmlTagName Keyword
 
-hi yamlBlockMappingKey guifg=#59c0e3
+call s:hi("yamlBlockMappingKey", s:colour_15, "", "", "")
 hi! link yamlBool Keyword
 hi! link yamlDocumentStart Keyword
 
@@ -333,30 +374,23 @@ hi! link yamlDocumentStart Keyword
 "+----------------+
 " ALE
 " > w0rp/ale
-hi ALEWarningSign guifg=#f7b83d
-hi ALEErrorSign   guifg=#c8233b
-hi ALEWarning     guifg=#f7b83d gui=undercurl
-hi ALEError       guifg=#c8233b gui=undercurl
+call s:hi("ALEWarningSign", s:colour_19, "", "",          "")
+call s:hi("ALEErrorSign",   s:colour_18, "", "",          "")
+call s:hi("ALEWarning",     s:colour_19, "", "undercurl", "")
+call s:hi("ALEError",       s:colour_18, "", "undercurl", "")
 
 " GitGutter
 " > airblade/vim-gitgutter
-hi GitGutterAdd          guifg=#6ee062
-hi GitGutterChange       guifg=#f7b83d
-hi GitGutterChangeDelete guifg=#c8233b
-hi GitGutterDelete       guifg=#c8233b
-
+call s:hi("GitGutterAdd",          s:colour_20, "", "", "")
+call s:hi("GitGutterChange",       s:colour_19, "", "", "")
+call s:hi("GitGutterChangeDelete", s:colour_18, "", "", "")
+call s:hi("GitGutterDelete",       s:colour_18, "", "", "")
 
 " fugitive.vim
 " > tpope/vim-fugitive
-hi gitcommitDiscardedFile guifg=#c8233b
-hi gitcommitUntrackedFile guifg=#c8233b
-hi gitcommitSelectedFile  guifg=#6ee062
-
-" NERDTree
-" > scrooloose/nerdtree
-hi NERDTreeExecFile guifg=#6ee062
-hi! link NERDTreeDirSlash Keyword
-hi! link NERDTreeHelp Comment
+call s:hi("gitcommitDiscardedFile", s:colour_18, "", "", "")
+call s:hi("gitcommitUntrackedFile", s:colour_18, "", "", "")
+call s:hi("gitcommitSelectedFile",  s:colour_20, "", "", "")
 
 " CtrlP
 " > ctrlpvim/ctrlp.vim
@@ -365,17 +399,17 @@ hi! link CtrlPBufferHid Normal
 
 " vim-indent-guides
 " > nathanaelkane/vim-indent-guides
-hi IndentGuidesEven guibg=#0b1010
-hi IndentGuidesOdd  guibg=#1c2525
+call s:hi("IndentGuidesEven", "", s:colour_01, "", "")
+call s:hi("IndentGuidesOdd",  "", s:colour_03, "", "")
 
 " vim-plug
 " > junegunn/vim-plug
-hi plugDeleted guifg=#c8233b
+call s:hi("plugDeleted", s:colour_18, "", "", "")
 
 " > HerringtonDarkholme/yats.vim
-hi typescriptBOMWindowMethod guifg=#59c0e3 gui=italic
-hi typescriptRegexpString    guifg=#6ee062
-hi tsxAttrib                 guifg=#b1b0fc
+call s:hi("typescriptBOMWindowMethod", s:colour_15, "", "italic", "")
+call s:hi("typescriptRegexpString",    s:colour_20, "", "",       "")
+call s:hi("tsxAttrib",                 s:colour_21, "", "",       "")
 hi! link tsxEqual Operator
 hi! link tsxIntrinsicTagName htmlTag
 hi! link tsxTagName tsxIntrinsicTagName
