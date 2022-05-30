@@ -237,11 +237,6 @@ nmap <silent> <LocalLeader>rl :wa <bar> :TestLast<CR>
 " +---------------+
 " |   Nvim Tree   |
 " +---------------+
-" Show git status in the tree via highlighting
-let g:nvim_tree_git_hl = 1
-
-" Show a training slash on directories
-let g:nvim_tree_add_trailing = 1
 
 " Shortcut for opening nvim-tree
 nmap <LocalLeader>nt :NvimTreeToggle<CR>
@@ -249,11 +244,15 @@ nmap <LocalLeader>nt :NvimTreeToggle<CR>
 " Run nvim-tree startup function
 lua << EOF
 require'nvim-tree'.setup {
-  -- Show indent markers for open directories
   renderer = {
+    -- Show indent markers for open directories
     indent_markers = {
       enable = true,
     },
+    -- Show git status in the tree via highlighting
+    highlight_git = true,
+    -- Show a training slash on directories
+    add_trailing = true,
   },
 }
 EOF
