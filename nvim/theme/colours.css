@@ -1,0 +1,47 @@
+.dark {
+  --colour_01: #0b1010;
+  --colour_02: #121717;
+  --colour_03: #1c2525;
+  --colour_04: #212b2b;
+  --colour_05: #2d3939;
+  --colour_06: #f2f6f7;
+  --colour_07: #d6e5e9;
+  --colour_08: #bdd6db;
+  --colour_09: #c8dde2;
+  --colour_10: #7799a1;
+  --colour_11: #537178;
+  --colour_12: #3a4949;
+  --colour_13: #b1e2f2;
+  --colour_14: #68cbe8;
+  --colour_15: #59c0e3;
+  --colour_16: #359db0;
+  --colour_17: #2d8da1;
+  --colour_18: #c8233b;
+  --colour_19: #f7b83d;
+  --colour_20: #6ee062;
+  --colour_21: #b1b0fc;
+}
+
+.light {
+  --colour_01: #f3f8f9;
+  --colour_02: #e7ecee;
+  --colour_03: #d6e5e9;
+  --colour_04: #c8dde2;
+  --colour_05: #7799a1;
+  --colour_06: #0b1010;
+  --colour_07: #121717;
+  --colour_08: #1c2525;
+  --colour_09: #212b2b;
+  --colour_10: #2d3939;
+  --colour_11: #537178;
+  --colour_12: #3a4949;
+  --colour_13: #09a5d9;
+  --colour_14: #0c8ab0;
+  --colour_15: #097396;
+  --colour_16: #087083;
+  --colour_17: #085261;
+  --colour_18: #c8233b;
+  --colour_19: #f7b83d;
+  --colour_20: #12a305;
+  --colour_21: #5c5b8a;
+}

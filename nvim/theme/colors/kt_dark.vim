@@ -397,11 +397,6 @@ call s:hi("gitcommitSelectedFile",  s:colour_20, "", "", "")
 hi! link CtrlPMatch Keyword
 hi! link CtrlPBufferHid Normal
 
-" vim-indent-guides
-" > nathanaelkane/vim-indent-guides
-call s:hi("IndentGuidesEven", "", s:colour_01, "", "")
-call s:hi("IndentGuidesOdd",  "", s:colour_03, "", "")
-
 " vim-plug
 " > junegunn/vim-plug
 call s:hi("plugDeleted", s:colour_18, "", "", "")
