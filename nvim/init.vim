@@ -35,8 +35,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   " Tree explorer
   Plug 'kyazdani42/nvim-tree.lua'
-  " Show indentation levels
-  Plug 'lukas-reineke/indent-blankline.nvim'
   " Language support for a *bunch* of languages
   Plug 'sheerun/vim-polyglot'
   " Easily comment stuff out
