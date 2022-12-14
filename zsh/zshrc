@@ -32,21 +32,15 @@ eval "$(rbenv init -)"
 plugins=(
   brew
   bundler
-  colored-man-pages
-  command-not-found
   docker
   docker-compose
-  gem
   git
-  heroku
   npm
   nvm
   macos
   rbenv
-  ripgrep
   safe-paste
   terraform
-  transfer
   yarn
 )
 
@@ -70,8 +64,6 @@ alias ws="python3 -m http.server"
 alias docker-purge="docker system prune -fa --volumes"
 
 alias python="python3"
-
-alias olivia="ssh olivia.sleepysheepy.dev"
 
 mc(){ mkdir "$1" && cd "$1" ; }
 

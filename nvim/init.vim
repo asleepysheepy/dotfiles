@@ -142,9 +142,12 @@ nmap <silent> <LocalLeader>ec :tabnew ~/.config/nvim/init.vim<CR>
 nmap <silent> <LocalLeader>gb :Git blame<CR>
 " Copy file name
 nmap <silent> <LocalLeader>fn :let @*=expand("%")<CR>
-
 " Switch back to the previous file
 nmap <silent> <LocalLeader><LocalLeader> <C-^>
+" Set light theme
+nmap <silent> <LocalLeader>lt :colorscheme kt_light<CR>
+" Set dark theme
+nmap <silent> <LocalLeader>dt :colorscheme kt_dark<CR>
 
 " +---------------+
 " |      ALE      |
