@@ -13,7 +13,7 @@ export ZSH_CUSTOM="$ZSH/custom"
 
 export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:/usr/local/opt/openjdk/bin:$PATH"
 
-export EDITOR="nvim"
+export EDITOR="code"
 
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
@@ -29,27 +29,10 @@ eval "$(rbenv init -)"
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
-plugins=(
-  brew
-  bundler
-  docker
-  docker-compose
-  git
-  npm
-  nvm
-  macos
-  rbenv
-  safe-paste
-  terraform
-  yarn
-)
-
 CASE_SENSTIVE="true"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 source $DOTFILES_DIR/zsh/p10k.zsh
 source $ZSH/oh-my-zsh.sh
-
-source $XDG_CONFIG_HOME/broot/launcher/bash/br
 
 alias flush-branches="git branch --merged main | grep -v 'main' | xargs git branch -d && git remote prune origin"
 alias ll="lsd -la"
