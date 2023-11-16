@@ -4,7 +4,6 @@ tap "homebrew/core"
 
 brew "asciiquarium"
 brew "bat"
-brew "broot"
 brew "docker"
 brew "docker-compose"
 brew "libpq"

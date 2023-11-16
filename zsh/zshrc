@@ -1,5 +1,8 @@
 typeset -U PATH
 
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export EDITOR="code"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -13,19 +16,11 @@ export ZSH_CUSTOM="$ZSH/custom"
 
 export PATH="$DOTFILES_DIR/bin:$HOME/bin:/usr/local/bin:/usr/local/opt/openjdk/bin:$PATH"
 
-export EDITOR="code"
-
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
-export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
-
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(rbenv init -)"
+
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
@@ -36,16 +31,12 @@ source $ZSH/oh-my-zsh.sh
 
 alias flush-branches="git branch --merged main | grep -v 'main' | xargs git branch -d && git remote prune origin"
 alias ll="lsd -la"
-alias mux="tmuxinator"
 alias pu="nvim +PlugUpdate +qa"
 alias pull="git pull && flush-branches"
-alias rc="bundle exec rails console"
-alias rs="bundle exec rails server -b 0.0.0.0"
 alias vi="nvim"
 alias vim="nvim"
 alias ws="python3 -m http.server"
 alias docker-purge="docker system prune -fa --volumes"
-
 alias python="python3"
 
 mc(){ mkdir "$1" && cd "$1" ; }

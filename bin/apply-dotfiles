@@ -9,11 +9,9 @@ brew bundle
 rm $HOME/.zshrc
 ln -s $HOME/projects/dotfiles/zsh/zshrc $HOME/.zshrc
 
-mkdir $HOME/.cache/ruby
 mkdir $HOME/.cache/less
 mkdir $HOME/.cache/zsh
 mkdir $HOME/.cache/pnpm
-mkdir $HOME/.cache/bundle
 
 mkdir $HOME/.local/state
 mkdir $HOME/.local/state/pnpm
@@ -21,18 +19,5 @@ mkdir $HOME/.local/state/pnpm
 rm $HOME/.config/git
 ln -s $HOME/projects/dotfiles/git $HOME/.config/git
 
-rm -rf $HOME/.config/tmux
-ln -s $HOME/projects/dotfiles/tmux $HOME/.config/tmux
-
 rm -rf $HOME/.config/nvim
 ln -s $HOME/projects/dotfiles/nvim $HOME/.config/nvim
-
-rm -rf $HOME/.config/ruby
-ln -s $HOME/projects/dotfiles/ruby $HOME/.config/ruby
-
-rm -rf $HOME/.config/tmuxinator
-ln -s $HOME/projects/dotfiles/tmuxinator $HOME/.config/tmuxinator
-
-rm -rf $HOME/.config/rails
-ln -s $HOME/projects/dotfiles/rails $HOME/.config/rails
-
